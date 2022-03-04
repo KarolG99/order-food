@@ -8,7 +8,6 @@ import { MenuOrderContext } from "../../Providers/MenuOrderProvider";
 
 const Menu = () => {
   const {
-    // ShoppingCartArray,
     handleOrderMeals,
     handleSubtractMeal,
   } = useContext(MenuOrderContext);

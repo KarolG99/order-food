@@ -8,7 +8,11 @@ import {
 import { Button, StyledArrow } from "../../atoms/Button/Button.styles";
 import { HeaderH1 } from "../../atoms/Headers/HeaderH1.styles";
 import { Wrapper } from "../../atoms/Wrapper/Wrapper.styles";
-import { ShoppingCartWrapper, StyledFinalPrice, StyledLink } from "./ShoppingCart.styles";
+import {
+  ShoppingCartWrapper,
+  StyledFinalPrice,
+  StyledLink,
+} from "./ShoppingCart.styles";
 
 const ShoppingCart = () => {
   const { ShoppingCartArray, handleSubtractMeal } =
@@ -19,7 +23,9 @@ const ShoppingCart = () => {
     return sum;
   };
 
-  const FinalPrice = (ShowPrice: any) => {
+  const FinalPrice = (ShowPrice: {
+    (price: number, quantity: number): number;
+  }) => {
     let finalPrice = 0;
     ShoppingCartArray.forEach((element) => {
       finalPrice += ShowPrice(element.price, element.quantity);
@@ -62,7 +68,9 @@ const ShoppingCart = () => {
         </MenuItems>
 
         {FinalPrice(ShowPrice) > 0 ? (
-          <StyledFinalPrice>Do zapłaty: {FinalPrice(ShowPrice)} zł</StyledFinalPrice>
+          <StyledFinalPrice>
+            Do zapłaty: {FinalPrice(ShowPrice)} zł
+          </StyledFinalPrice>
         ) : (
           <h1>Mhm Mhm... Nie jesteś głodny?</h1>
         )}

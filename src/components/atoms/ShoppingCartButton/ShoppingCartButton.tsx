@@ -18,8 +18,8 @@ const StyledShoppingCartButton = styled.button`
   bottom: 25px;
   right: 15px;
   -webkit-box-shadow: 0px 1px 26px -15px rgba(66, 68, 90, 1);
-    -moz-box-shadow: 0px 1px 26px -15px rgba(66, 68, 90, 1);
-    box-shadow: 0px 1px 26px -15px rgba(66, 68, 90, 1);
+  -moz-box-shadow: 0px 1px 26px -15px rgba(66, 68, 90, 1);
+  box-shadow: 0px 1px 26px -15px rgba(66, 68, 90, 1);
 `;
 
 export const ShoppingCartButton = () => {
