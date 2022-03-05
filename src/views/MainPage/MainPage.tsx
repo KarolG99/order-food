@@ -1,6 +1,6 @@
 import React from "react";
 import { StyledMain } from "../App.styles";
-import Menu from "../Menu/Menu";
+import Menu from "../../components/organisms/Menu/Menu";
 import StepsToOrder from "../../components/organisms/StepsToOrder/StepsToOrder";
 import Header from "../../components/organisms/Header/Header";
 import { ShoppingCartButton } from "../../components/atoms/ShoppingCartButton/ShoppingCartButton";

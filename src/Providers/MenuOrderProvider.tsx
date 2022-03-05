@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { RefObject, useState } from "react";
 import { MenuData } from "../data/MenuData/MenuData";
 
 interface menuInterface {
@@ -14,6 +14,7 @@ interface MenuOrderInterface {
   orderedMeals: menuInterface[];
   handleOrderMeals: (values: menuInterface) => void;
   handleSubtractMeal: (values: menuInterface) => void;
+  handleDeleteOrder: (LinkRef: RefObject<HTMLAnchorElement>) => void;
 }
 
 export const MenuOrderContext = React.createContext<MenuOrderInterface>({
@@ -21,6 +22,7 @@ export const MenuOrderContext = React.createContext<MenuOrderInterface>({
   orderedMeals: [],
   handleOrderMeals: () => {},
   handleSubtractMeal: () => {},
+  handleDeleteOrder: () => {},
 });
 
 interface MenuOrderProviderProps {
@@ -60,6 +62,18 @@ const MenuOrderProvider = ({
     });
   };
 
+  const handleDeleteOrder = (LinkRef: RefObject<HTMLAnchorElement>) => {
+    // eslint-disable-next-line array-callback-return
+    ShoppingCartArray.map((element): void => {
+      if (element.quantity > 0) {
+        element.quantity = 0;
+      }
+    });
+    if (LinkRef.current) {
+      LinkRef.current.click();
+    }
+  };
+
   return (
     <MenuOrderContext.Provider
       value={{
@@ -67,6 +81,7 @@ const MenuOrderProvider = ({
         orderedMeals,
         handleOrderMeals,
         handleSubtractMeal,
+        handleDeleteOrder,
       }}
     >
       {children}

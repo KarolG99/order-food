@@ -6,6 +6,7 @@ export const MenuWrapper = styled.article`
   align-items: center;
   flex-direction: column;
   position: relative;
+  padding: 10px;
 `;
 
 export const MenuItems = styled.article`

@@ -6,13 +6,13 @@ export const Button = styled.button`
   border: none;
   width: 35px;
   height: 35px;
-  border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
 
   &.slider-btn {
+    border-radius: 50%;
     margin: 0 70px;
   }
 
@@ -23,12 +23,20 @@ export const Button = styled.button`
     padding: 25px;
     color: ${({ theme }) => theme.colors.black};
   }
+
+  &.go-to-payment {
+    width: fit-content;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 18px;
+    color: ${({ theme }) => theme.colors.black};
+    margin-top: 20px;
+    margin-bottom: 40px;
+  }
 `;
 
 export const StyledArrow = styled(Arrow)`
   &.prev {
     transform: rotate(180deg);
   }
-
-
 `;

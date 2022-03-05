@@ -23,12 +23,13 @@ const StepsToOrder = () => {
     if (currentImg >= 4) setCurrentImg(1);
   };
 
-  // className="step-wrapper"
-
   return (
     <Wrapper>
       <HeaderH1 className="steps-header">Jak to działa?</HeaderH1>
-      <Wrapper className={animationActive ? 'step-wrapper anim' : 'step-wrapper'} onAnimationEnd={() => setAnimationActive(false)}>
+      <Wrapper
+        className={animationActive ? "step-wrapper anim" : "step-wrapper"}
+        onAnimationEnd={() => setAnimationActive(false)}
+      >
         {currentImg === 1 && <Step1Icon />}
         {currentImg === 2 && <Step2Icon />}
         {currentImg === 3 && <Step3Icon />}

@@ -1,20 +1,8 @@
 import styled from "styled-components";
 
-export const ShoppingCartWrapper = styled.article`
-  width: 100vw;
-  min-height: 100vh;
-  padding-top: 10px;
-`;
-
-export const StyledFinalPrice = styled.h1`
+export const H1rderSummary = styled.h1`
   position: relative;
-  z-index: 3;
-  font-weight: 600;
-
-  span {
-    font-size: 24px;
-    font-weight: 800;
-  }
+  font-size: 22px;
 
   &::after {
     content: "";
