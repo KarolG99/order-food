@@ -1,6 +1,7 @@
 import React, { RefObject, useState } from "react";
 import { MenuData } from "../data/MenuData/MenuData";
 
+// interface <
 interface menuInterface {
   image: string;
   foodName: string;
@@ -17,6 +18,12 @@ interface MenuOrderInterface {
   handleDeleteOrder: (LinkRef: RefObject<HTMLAnchorElement>) => void;
 }
 
+interface MenuOrderProviderProps {
+  children: JSX.Element;
+}
+// /> interface
+
+//  context <
 export const MenuOrderContext = React.createContext<MenuOrderInterface>({
   ShoppingCartArray: [],
   orderedMeals: [],
@@ -24,10 +31,7 @@ export const MenuOrderContext = React.createContext<MenuOrderInterface>({
   handleSubtractMeal: () => {},
   handleDeleteOrder: () => {},
 });
-
-interface MenuOrderProviderProps {
-  children: JSX.Element;
-}
+// /> context
 
 const MenuOrderProvider = ({
   children,
@@ -43,9 +47,7 @@ const MenuOrderProvider = ({
       price: values.price,
       quantity: (values.quantity += 1),
     };
-
     setOrderedMeals([newMeal, ...orderedMeals]);
-
     orderedMeals.forEach((element) => {
       if (!orderedMeals.includes(element)) {
         ShoppingCartArray.push(element);

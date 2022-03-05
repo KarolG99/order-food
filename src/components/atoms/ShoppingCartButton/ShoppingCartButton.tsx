@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { ReactComponent as ShoppingCart } from "../../../assets/icons/shoppingCart.svg";
+import { MenuOrderContext } from "../../../Providers/MenuOrderProvider";
 
 const ShoppingCartIcon = styled(ShoppingCart)``;
 
@@ -27,41 +28,52 @@ const StyledShoppingCartButton = styled.button`
       content: "";
       width: 10px;
       height: 10px;
+      border-radius: 50%;
       background-color: red;
-      top: 10;
-      left: 10;
+      top: 5px;
+      left: 5px;
     }
   }
 `;
 
 export const ShoppingCartButton = () => {
-  // const ShowPrice = (price: number, quantity: number) => {
-  //   const sum = price * quantity;
-  //   return sum;
-  // };
+  const { ShoppingCartArray, orderedMeals } = useContext(MenuOrderContext);
+  const [isOrderEmpty, setIsOrderEmpty] = useState<boolean>(true);
 
-  // const FinalPrice = (ShowPrice: {
-  //   (price: number, quantity: number): number;
-  // }) => {
-  //   let finalPrice = 0;
-  //   ShoppingCartArray.forEach((element) => {
-  //     finalPrice += ShowPrice(element.price, element.quantity);
-  //   });
+  const ShowPrice = (price: number, quantity: number): number => {
+    const sum = price * quantity;
+    return sum;
+  };
 
-  //   if (finalPrice > 0) {
-  //     console.log(finalPrice);
-  //     setIsShoppingCartEmpty(false);
-  //   } else {
-  //     setIsShoppingCartEmpty(true);
-  //   }
-  //   return finalPrice;
-  // };
+  const FinalPrice = (ShowPrice: {
+    (price: number, quantity: number): number;
+  }) => {
+    let finalPrice = 0;
+    ShoppingCartArray.forEach((element) => {
+      finalPrice += ShowPrice(element.price, element.quantity);
+    });
+    return finalPrice;
+  };
+
+  useEffect(() => {
+    if (FinalPrice(ShowPrice) > 0) {
+      setIsOrderEmpty(false);
+    } else {
+      setIsOrderEmpty(true);
+    }
+  }, [orderedMeals.length]);
 
   return (
     <Link to="/shopping-cart">
-      <StyledShoppingCartButton>
-        <ShoppingCartIcon />
-      </StyledShoppingCartButton>
+      {isOrderEmpty ? (
+        <StyledShoppingCartButton>
+          <ShoppingCartIcon />
+        </StyledShoppingCartButton>
+      ) : (
+        <StyledShoppingCartButton className="not-empty">
+          <ShoppingCartIcon />
+        </StyledShoppingCartButton>
+      )}
     </Link>
   );
 };

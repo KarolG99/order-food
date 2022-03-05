@@ -7,6 +7,7 @@ export const MenuWrapper = styled.article`
   flex-direction: column;
   position: relative;
   padding: 10px;
+  min-height: 100vh;
 `;
 
 export const MenuItems = styled.article`

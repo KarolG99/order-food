@@ -8,12 +8,13 @@ import { MenuWrapper } from "../Menu/Menu.styles";
 const OrderNumber = () => {
   const { handleDeleteOrder } = useContext(MenuOrderContext);
   const LinkRef = useRef<HTMLAnchorElement>(null);
+
   return (
     <MenuWrapper>
       <HeaderH1>Twój numer zamówienia to</HeaderH1>
       <h2>120fe456sff</h2>
 
-      <h1>Dziękujemy za złożenie zamówienia!</h1>
+      <h1>Dziękujemy i zapraszamy ponownie!</h1>
 
       <StyledLink to="/" hidden ref={LinkRef}></StyledLink>
       <Button

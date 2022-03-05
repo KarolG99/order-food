@@ -14,7 +14,7 @@ const Menu = () => {
       <HeaderH1 className="menu-header">Nasze Menu</HeaderH1>
       <MenuItems>
         {MenuData &&
-          MenuData.map((menuItem, index) => (
+          MenuData.map((menuItem) => (
             <Wrapper key={menuItem.foodName} className="menu-item">
               <img src={menuItem.image} alt="zdjęcie dania" />
               <h2>{menuItem.foodName}</h2>

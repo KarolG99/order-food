@@ -12,7 +12,7 @@ export const FormFieldWrapper = styled.div`
   margin: 15px 0;
 
   input {
-    width: 300px;
+    width: 230px;
     margin: 10px;
     padding: 4px 2px;
     border: none;
