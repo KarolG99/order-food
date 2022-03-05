@@ -45,23 +45,25 @@ export const ShoppingCartButton = () => {
     return sum;
   };
 
-  const FinalPrice = (ShowPrice: {
-    (price: number, quantity: number): number;
-  }) => {
-    let finalPrice = 0;
-    ShoppingCartArray.forEach((element) => {
-      finalPrice += ShowPrice(element.price, element.quantity);
-    });
-    return finalPrice;
-  };
+
 
   useEffect(() => {
+    const FinalPrice = (ShowPrice: {
+      (price: number, quantity: number): number;
+    }) => {
+      let finalPrice = 0;
+      ShoppingCartArray.forEach((element) => {
+        finalPrice += ShowPrice(element.price, element.quantity);
+      });
+      return finalPrice;
+    };
+
     if (FinalPrice(ShowPrice) > 0) {
       setIsOrderEmpty(false);
     } else {
       setIsOrderEmpty(true);
     }
-  }, [orderedMeals.length]);
+  }, [ShoppingCartArray, orderedMeals.length]);
 
   return (
     <Link to="/shopping-cart">
