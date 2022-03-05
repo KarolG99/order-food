@@ -1,8 +1,7 @@
-import React, { useContext, useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { ReactComponent as ShoppingCart } from "../../../assets/icons/shoppingCart.svg";
-import { MenuOrderContext } from "../../../Providers/MenuOrderProvider";
 
 const ShoppingCartIcon = styled(ShoppingCart)``;
 
@@ -36,9 +35,6 @@ const StyledShoppingCartButton = styled.button`
 `;
 
 export const ShoppingCartButton = () => {
-  const { ShoppingCartArray } = useContext(MenuOrderContext);
-  const [isShoppingCartEmpty, setIsShoppingCartEmpty] = useState<boolean>(true);
-
   // const ShowPrice = (price: number, quantity: number) => {
   //   const sum = price * quantity;
   //   return sum;
@@ -61,20 +57,11 @@ export const ShoppingCartButton = () => {
   //   return finalPrice;
   // };
 
-
   return (
     <Link to="/shopping-cart">
-      {isShoppingCartEmpty ? (
-        <>
-          <StyledShoppingCartButton>
-            <ShoppingCartIcon />
-          </StyledShoppingCartButton>
-        </>
-      ) : (
-        <StyledShoppingCartButton className="not-empty">
-          <ShoppingCartIcon />
-        </StyledShoppingCartButton>
-      )}
+      <StyledShoppingCartButton>
+        <ShoppingCartIcon />
+      </StyledShoppingCartButton>
     </Link>
   );
 };
