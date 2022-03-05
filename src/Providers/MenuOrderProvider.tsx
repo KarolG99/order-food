@@ -31,7 +31,6 @@ const MenuOrderProvider = ({
   children,
 }: MenuOrderProviderProps): JSX.Element => {
   const [orderedMeals, setOrderedMeals] = useState<menuInterface[]>([]);
-
   const ShoppingCartArray = MenuData;
 
   const handleOrderMeals = (values: menuInterface): void => {

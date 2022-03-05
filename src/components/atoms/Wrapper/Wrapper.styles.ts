@@ -1,4 +1,16 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+
+const Scale = keyframes`
+  0% {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+`;
 
 export const Wrapper = styled.div`
   display: flex;
@@ -9,6 +21,10 @@ export const Wrapper = styled.div`
 
   &.step-wrapper {
     flex-direction: row;
+
+    &.anim {
+      animation: ${Scale} 0.3s ease-in-out;
+    }
   }
 
   &.btn-wrapper {
