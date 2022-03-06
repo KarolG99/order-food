@@ -111,7 +111,7 @@ const AdressForm = () => {
             formValues.houseNumber &&
             formValues.town &&
             formValues.zipCode) && (
-              <p>Wypełnij obowiązkowe pola *</p>
+              <i>Wypełnij obowiązkowe pola *</i>
             )}
 
           <StyledLink to="/order-summary" ref={LinkRef}>

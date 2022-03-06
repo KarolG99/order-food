@@ -23,7 +23,7 @@ export const Wrapper = styled.div`
     flex-direction: row;
 
     &.anim {
-      animation: ${Scale} 0.3s ease-in-out;
+      animation: ${Scale} 0.37s ease-in-out;
     }
   }
 

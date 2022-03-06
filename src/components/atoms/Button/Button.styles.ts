@@ -30,8 +30,6 @@ export const Button = styled.button`
     font-weight: 700;
     font-size: 18px;
     color: ${({ theme }) => theme.colors.black};
-    margin-top: 20px;
-    margin-bottom: 40px;
   }
 `;
 

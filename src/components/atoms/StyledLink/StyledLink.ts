@@ -4,6 +4,7 @@ import styled from "styled-components";
 export const StyledLink = styled(Link)`
   text-decoration: none;
   margin-bottom: 30px;
+  margin-top: 15px;
 
   &.back {
     width: fit-content;
