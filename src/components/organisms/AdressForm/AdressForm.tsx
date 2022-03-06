@@ -39,13 +39,19 @@ const AdressForm = () => {
     });
   };
 
-  const handleSubmitPost = (e: React.FormEvent<HTMLButtonElement>): void => {
+  const handleSubmitAdress = (e: React.FormEvent<HTMLButtonElement>): void => {
     e.preventDefault();
-    handleAddFormValues(formValues);
-    setFormValues(initialFormState);
-
-    if (LinkRef.current) {
-      LinkRef.current.click();
+    if (
+      formValues.fullname &&
+      formValues.houseNumber &&
+      formValues.town &&
+      formValues.zipCode
+    ) {
+      handleAddFormValues(formValues);
+      setFormValues(initialFormState);
+      if (LinkRef.current) {
+        LinkRef.current.click();
+      }
     }
   };
 
@@ -64,21 +70,21 @@ const AdressForm = () => {
             name="fullname"
             onChange={handleInputChange}
             value={formValues.fullname}
-            placeholder="Imię i nazwisko"
+            placeholder="Imię i nazwisko *"
           />
           <FormField
             id="town"
             name="town"
             onChange={handleInputChange}
             value={formValues.town}
-            placeholder="Miejscowość"
+            placeholder="Miejscowość *"
           />
           <FormField
             id="zipCode"
             name="zipCode"
             onChange={handleInputChange}
             value={formValues.zipCode}
-            placeholder="Kod pocztowy"
+            placeholder="Kod pocztowy *"
           />
           <FormField
             id="street"
@@ -92,7 +98,7 @@ const AdressForm = () => {
             name="houseNumber"
             onChange={handleInputChange}
             value={formValues.houseNumber}
-            placeholder="Numer domu"
+            placeholder="Numer domu *"
           />
           <FormField
             id="phoneNumber"
@@ -101,12 +107,18 @@ const AdressForm = () => {
             value={formValues.phoneNumber}
             placeholder="Numer telefonu"
           />
+          {!(formValues.fullname &&
+            formValues.houseNumber &&
+            formValues.town &&
+            formValues.zipCode) && (
+              <p>Wypełnij obowiązkowe pola *</p>
+            )}
 
           <StyledLink to="/order-summary" ref={LinkRef}>
             <Button
               type="submit"
               className="go-to-payment"
-              onClick={handleSubmitPost}
+              onClick={handleSubmitAdress}
             >
               Dalej
             </Button>

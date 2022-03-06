@@ -24,6 +24,7 @@ const FormField = ({
     <FormFieldWrapper>
       <label htmlFor={id}>{label}</label>
       <input
+      required
         id={id}
         name={name}
         type={type}
